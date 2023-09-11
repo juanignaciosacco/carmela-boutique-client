@@ -8,7 +8,8 @@ export const ItemList = () => {
   return (
     <div className="itemList_card_container">
       {items.length > 0 &&
-        items.map((item) => <ItemCard key={item.id} item={item} />)}
+        items.map((item) => <ItemCard key={item.id} item={item} />)
+      }
     </div>
   );
 };

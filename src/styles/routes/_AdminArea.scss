@@ -1,0 +1,18 @@
+.adminArea_container {
+    .adminArea_container-form {
+        margin: 0 auto;
+        width: 25%;
+    }
+    .adminArea_container-buttons {
+        margin-top: 200px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .adminArea_container-agregarProd {
+        margin: 0 auto;
+        width: 50%;
+    }
+}

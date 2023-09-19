@@ -1,0 +1,9 @@
+.itemListContainer {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    flex-wrap: nowrap;
+    .itemListContainer-filters {
+        width: 500px;
+    }
+}

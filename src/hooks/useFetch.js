@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     if (url !== undefined) {
       fetch(`${url}`)
         .then((res) => res.json())
-        .then((res2) => setItems(res2))
+        .then((res2) => setData(res2))
         .catch((error) => console.log("error"));
     }
   }, [url]);
 
-  return { items };
+  return { data };
 };

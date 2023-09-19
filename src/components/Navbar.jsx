@@ -5,9 +5,9 @@ export const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">
+        {/* <a className="navbar-brand" href="#">
           Navbar
-        </a>
+        </a> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -25,22 +25,24 @@ export const Navbar = () => {
         >
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+              <Link to={"/adminArea"} className="nav-link">
+                Admin
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
+              <Link to={"/productos"} className="nav-link">
+                Productos
+              </Link>
             </li>
-            <Link to={"/contacto"} className="nav-link">
-              <li className="nav-item">Contacto</li>
-            </Link>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to={"/contacto"} className="nav-link">
+                Contacto
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">
                 <CartWidget />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

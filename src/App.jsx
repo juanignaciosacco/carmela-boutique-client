@@ -1,22 +1,24 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import { ItemList } from "./components/ItemList";
 import { Navbar } from "./components/Navbar";
 import { Contacto } from "./routes/Contacto";
 import { Footer } from "./components/Footer";
+import { AdminArea } from "./routes/AdminArea";
+import { ItemsContainer } from "./routes/ItemsContainer";
+import { AdminIsLoggedProvider } from "./context/AdminContext";
 
 function App() {
-  
   return (
     <>
-    <HashRouter>
-      <Navbar />
-      <Routes>
-        <Route exact path="/contacto" element={<Contacto />} />
-      </Routes>
-
-    </HashRouter>
-      <h1>Items</h1>
-      <ItemList />
+      <HashRouter>
+        <AdminIsLoggedProvider>
+          <Navbar />
+          <Routes>
+            <Route exact path="/contacto" element={<Contacto />} />
+            <Route exact path="/productos" element={<ItemsContainer />} />
+            <Route exact path="/adminArea" element={<AdminArea />} />
+          </Routes>
+        </AdminIsLoggedProvider>
+      </HashRouter>
       <Footer />
     </>
   );

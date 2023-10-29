@@ -33,7 +33,7 @@ export async function deletFile(file) {
 }
 
 export async function uploadFile(file, imageHeic) {
-  let name = ''
+  let name = ""
   if (file.name === undefined) {
     name = v4() + imageHeic.name
   } else {

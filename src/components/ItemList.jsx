@@ -19,14 +19,22 @@ export const ItemList = ({ filtro }) => {
       });
     }
     setProdsFiltrados(prods2)
-  }, [filtro]);
+  }, [filtro, prods]);
 
   return (
     <div className="itemList_card_container">
       {filtro.length > 0
-        ? prodsFiltrados.map((item) => <ItemCard key={item.id} item={item} />)
+        ? prodsFiltrados.map((item) => (
+          <div key={item.id} className="itemList_container-card">
+            <ItemCard key={item.id} item={item} />
+          </div>
+          ))
         : prods.length > 0 &&
-          prods.map((item) => <ItemCard key={item.id} item={item} />)}
+          prods.map((item) => (
+          <div key={item.id} className="itemList_container-card">
+            <ItemCard key={item.id} item={item} />
+          </div>
+          ))}
     </div>
   );
 };

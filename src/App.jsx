@@ -4,20 +4,19 @@ import { Contacto } from "./routes/Contacto";
 import { Footer } from "./components/Footer";
 import { AdminArea } from "./routes/AdminArea";
 import { ItemsContainer } from "./routes/ItemsContainer";
-import { AdminIsLoggedProvider } from "./context/AdminContext";
+import { Home } from "./routes/Home";
 
 function App() {
   return (
     <>
       <HashRouter>
-        <AdminIsLoggedProvider>
-          <Navbar />
-          <Routes>
-            <Route exact path="/contacto" element={<Contacto />} />
-            <Route exact path="/productos" element={<ItemsContainer />} />
-            <Route exact path="/adminArea" element={<AdminArea />} />
-          </Routes>
-        </AdminIsLoggedProvider>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/contacto" element={<Contacto />} />
+          <Route exact path="/productos" element={<ItemsContainer />} />
+          <Route exact path="/adminArea" element={<AdminArea />} />
+        </Routes>
       </HashRouter>
       <Footer />
     </>

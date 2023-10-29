@@ -1,50 +1,21 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { FromLogin } from "../components/FromLogin";
 import { CreateProduct } from "../components/CreateProduct";
-import { loginReducer } from "../reducers/loginReducer";
-import Swal from "sweetalert2";
-
-const initialLogin = JSON.parse(sessionStorage.getItem('login')) || {
-  isLogged: false,
-  user: undefined
-}
+import { useLogin } from "../hooks/useLogin";
+import { ListarUsuarios } from "../components/ListarUsuarios";
 
 export const AdminArea = () => {
 
   const [action, setAction] = useState("");
-
-  const [login, dispatch] = useReducer(loginReducer, initialLogin);
+  const { login, loginHandler, logutHandler } = useLogin();
 
   const clickHandler = (ev) => {
     setAction(ev.target.id);
   };
 
-  const loginHandler = ({userMail, password}) => {
-    if (userMail === 'juanchi@gmail.com' && password === "12345") {
-      const user = { userMail: 'juanchi@gmail.com', password: '12345' }
-      dispatch({
-        type: "login",
-        payload: user
-      });
-      sessionStorage.setItem('login', JSON.stringify({
-        isLogged: true,
-        user
-      }));
-    } else {
-      Swal.fire("Error login", "Username o password incorrecots", "error");
-    }
-  }
-
-  const logutHandler = () => {
-    dispatch({
-      type: 'logout'
-    });
-    sessionStorage.removeItem('login');
-  }
-
   return (
     <div className="adminArea_container">
-      {login.isLogged ? (
+      {login.isLogged && login.isAdmin ? (
         action === "" ? (
           <div className="adminArea_container-buttons">
             <button
@@ -68,15 +39,31 @@ export const AdminArea = () => {
             >
               Eliminar un producto
             </button>
+            <button
+              className="btn btn-primary m-3"
+              id="listarUsuarios"
+              onClick={clickHandler}
+            >
+              Ver usuarios
+            </button>
+            <button
+              className="btn btn-primary m-3"
+              id="eliminar"
+              onClick={logutHandler}
+            >
+              Logout
+            </button>
           </div>
         ) : (
           <div className="adminArea_container-agregarProd">
             {action === "agregar" && <CreateProduct />}
+            {action === "listarUsuarios" && <ListarUsuarios />}
+            <button className="btn btn-primary" onClick={() => setAction("")}>Volver</button>
           </div>
         )
       ) : (
         <div className="adminArea_container-form">
-          <FromLogin loginHandler={loginHandler}/>
+          <FromLogin loginHandler={loginHandler}/>  
         </div>
       )}
     </div>

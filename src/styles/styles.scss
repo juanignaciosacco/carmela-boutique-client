@@ -1,14 +1,16 @@
+// UI SETTINGS
+@import './UISettings/colors';
+
 // COMPONENTS
+@import './components/Navbar';
+@import './components/Portada';
 @import './components/ItemList';
 @import './components/FormContact';
 @import './components/Footer';
 @import './components/ProductFilters';
+@import './components/ItemCard';
 
 // ROUTES
 @import './routes/ItemListContainer';
 @import './routes/Contacto';
 @import './routes/AdminArea';
-
-// UI SETTINGS
-
-// ROUTES

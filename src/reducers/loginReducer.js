@@ -2,8 +2,8 @@ export const loginReducer = (state = {}, action) => {
     switch (action.type) {
         case 'login':
             return {
+                ...action.payload,
                 isLogged: true,
-                user: action.payload
             };
         case 'logout':
             return {

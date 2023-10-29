@@ -1,13 +1,14 @@
 import { CartWidget } from "./CartWidget";
 import { Link } from "react-router-dom";
+import Logo from '../assets/Logo.png';
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        {/* <a className="navbar-brand" href="#">
-          Navbar
-        </a> */}
+      <nav className="navbar navbar-expand-lg">
+        <Link className="navbar-brand" to={"/"}>
+          <img className="navbar-logo" src={Logo} alt="Carmela Boutique Logo"></img>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

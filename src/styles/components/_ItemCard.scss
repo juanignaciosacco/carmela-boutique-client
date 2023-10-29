@@ -1,0 +1,10 @@
+.itemCard_container {
+    .card {
+        min-height: 600px;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,15 @@
+.navbar {
+    background-color: $colorSecundario;
+    .navbar-logo {
+        width: 100px;
+        img {
+            width: 100%;
+        }
+    }
+    .nav-link {
+        color: $colorTerciario;
+        &:hover {
+            color: $colorPrimario;
+        }
+    }
+}

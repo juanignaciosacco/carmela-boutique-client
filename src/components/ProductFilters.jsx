@@ -1,24 +1,10 @@
 import React from "react";
 
 export const ProductFilters = ({ changeHandler }) => {
-//   const [filtros, setFiltros] = useState({
-//     Indumentaria: false,
-//     ParaDormir: false,
-//     ComederosYBebederos: false,
-//     Juguetes: false,
-//     ParaPasear: false,
-//     Rascadores: false,
-//     PiedrasYLiteras: false,
-//     BellezaEHigiene: false,
-//     Snacks: false,
-//     OtrosAccesorios: false,
-//     Ofertas: false,
-//   });
 
   const inputChangeHandler = ({ target: { value, checked }}) => {
     changeHandler(value, checked)
   };
-
 
   return (
     <div className="productFilters">
